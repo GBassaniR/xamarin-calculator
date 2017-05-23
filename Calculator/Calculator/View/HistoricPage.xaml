@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Calculator.View.HistoricPage">
+    <ContentPage.Padding>
+        <OnPlatform x:TypeArguments="Thickness"
+                    iOS="0, 20, 0, 0" />
+    </ContentPage.Padding>
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="darkerButton" TargetType="Button">
+                <Setter Property="BackgroundColor" Value="#37474f"/>
+                <Setter Property="TextColor" Value="White"/>
+                <Setter Property="BorderRadius" Value="0"/>
+                <Setter Property="FontSize" Value="40"/>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>    
+	<ContentPage.Content>
+        <StackLayout VerticalOptions="StartAndExpand">
+            <ListView ItemsSource="{Binding Result}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <TextCell Text="{Binding Operation}" 
+                                  Detail="{Binding Date}"/>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <Button Text="Voltar" 
+                    Style="{StaticResource darkerButton}"
+                    Command="{Binding CloseCommand}"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Calculator.View.MainPage"
+             Title = "Calculadora"
+             BackgroundColor="#141b1d">
+    <ContentPage.Padding>
+        <OnPlatform x:TypeArguments="Thickness"
+                    iOS="0, 20, 0, 0" />
+    </ContentPage.Padding>
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="plainButton" TargetType="Button">
+                <Setter Property="BackgroundColor" Value="#546e7a"/>
+                <Setter Property="TextColor" Value="White"/>
+                <Setter Property="BorderRadius" Value="0"/>
+                <Setter Property="FontSize" Value="40"/>
+            </Style>
+            <Style x:Key="darkerButton" TargetType="Button">
+                <Setter Property="BackgroundColor" Value="#37474f"/>
+                <Setter Property="TextColor" Value="White"/>
+                <Setter Property="BorderRadius" Value="0"/>
+                <Setter Property="FontSize" Value="40"/>
+            </Style>
+            <Style x:Key="greenButton" TargetType="Button">
+                <Setter Property="BackgroundColor" Value="#2e7d32"/>
+                <Setter Property="TextColor" Value="White"/>
+                <Setter Property="BorderRadius" Value="0"/>
+                <Setter Property="FontSize" Value="40"/>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    
+    <ContentPage.Content>
+        <Grid x:Name="controlGrid" RowSpacing="1" ColumnSpacing="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="150"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Label 
+                Text="{Binding DisplayValue}" 
+                LineBreakMode="HeadTruncation"
+                Grid.Row="0" 
+                HorizontalTextAlignment="End" 
+                VerticalTextAlignment="End" 
+                TextColor="White" 
+                FontSize="60"
+                Grid.ColumnSpan="4"/>
+            <Button 
+                Text="H" 
+                Grid.Row="1" 
+                Grid.Column="0" 
+                Style="{StaticResource darkerButton}"
+                Command="{Binding PushCommand}"/>
+            <Button 
+                Text="C" 
+                Image="TrashCan.png" 
+                Grid.Row="1" 
+                Grid.Column="1" 
+                Style="{StaticResource darkerButton}"
+                Command="{Binding CleanCommand}"/> 
+            <Button 
+                Text="←" 
+                Grid.Row="1" 
+                Grid.Column="2" 
+                Style="{StaticResource darkerButton}"
+                Command="{Binding BackspaceCommand}"/>
+            <Button 
+                Text="/" 
+                Grid.Row="1" 
+                Grid.Column="3" 
+                Style="{StaticResource darkerButton}"
+                Command="{Binding OperatorCommand}" 
+                CommandParameter="/"/>             
+            <Button 
+                Text="7" 
+                Grid.Row="2" 
+                Grid.Column="0" 
+                Style="{StaticResource plainButton}" 
+                Command="{Binding NumberComamnd}" 
+                CommandParameter="7"/>
+            <Button 
+                Text="8" 
+                Grid.Row="2" 
+                Grid.Column="1" 
+                Style="{StaticResource plainButton}"
+                Command="{Binding NumberComamnd}" 
+                CommandParameter="8"/> 
+            <Button 
+                Text="9" 
+                Grid.Row="2" 
+                Grid.Column="2" 
+                Style="{StaticResource plainButton}"
+                Command="{Binding NumberComamnd}" 
+                CommandParameter="9"/>
+            <Button 
+                Text="x" 
+                Grid.Row="2" 
+                Grid.Column="3" 
+                Style="{StaticResource darkerButton}"
+                Command="{Binding OperatorCommand}" 
+                CommandParameter="x"/>
+            <Button 
+                Text="4" 
+                Grid.Row="3" 
+                Grid.Column="0" 
+                Style="{StaticResource plainButton}"
+                Command="{Binding NumberComamnd}" 
+                CommandParameter="4"/>
+            <Button 
+                Text="5" 
+                Grid.Row="3" 
+                Grid.Column="1" 
+                Style="{StaticResource plainButton}"
+                Command="{Binding NumberComamnd}" 
+                CommandParameter="5"/>
+            <Button 
+                Text="6" 
+                Grid.Row="3" 
+                Grid.Column="2" 
+                Style="{StaticResource plainButton}"
+                Command="{Binding NumberComamnd}" 
+                CommandParameter="6"/>
+            <Button 
+                Text="+" 
+                Grid.Row="3" 
+                Grid.Column="3" 
+                Style="{StaticResource darkerButton}"
+                Command="{Binding OperatorCommand}" 
+                CommandParameter="+"/>
+            <Button 
+                Text="1" 
+                Grid.Row="4" 
+                Grid.Column="0" 
+                Style="{StaticResource plainButton}"
+                Command="{Binding NumberComamnd}" 
+                CommandParameter="1"/>
+            <Button 
+                Text="2" 
+                Grid.Row="4" 
+                Grid.Column="1" 
+                Style="{StaticResource plainButton}"
+                Command="{Binding NumberComamnd}" 
+                CommandParameter="2"/>
+            <Button 
+                Text="3"
+                Grid.Row="4" 
+                Grid.Column="2" 
+                Style="{StaticResource plainButton}"
+                Command="{Binding NumberComamnd}" 
+                CommandParameter="3"/>
+            <Button 
+                Text="-" 
+                Grid.Row="4" 
+                Grid.Column="3" 
+                Style="{StaticResource darkerButton}"
+                Command="{Binding OperatorCommand}" 
+                CommandParameter="-"/>
+            <Button 
+                Text="0" 
+                Grid.Row="5" 
+                Grid.Column="0" 
+                Style="{StaticResource plainButton}"
+                Command="{Binding NumberComamnd}" 
+                CommandParameter="0"/>
+            <Button 
+                Text="," 
+                Grid.Row="5" 
+                Grid.Column="1" 
+                Style="{StaticResource plainButton}"
+                Command="{Binding AddPointCommand}"/>
+            <Button 
+                Text="=" 
+                Grid.ColumnSpan="2" 
+                Grid.Row="5" 
+                Grid.Column="2" 
+                Style="{StaticResource greenButton}"
+                Command="{Binding CalculationCommand}"/>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
