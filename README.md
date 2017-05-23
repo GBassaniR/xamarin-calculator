@@ -8,4 +8,4 @@ This project aims to develop a calculator with four basic operations using the x
 
 ## License
 
-This project is licensed under the GNU License - see the [LICENSE.md](LICENSE.md) file for details
+This project is licensed under the GNU License - see the [LICENSE](LICENSE) file for details
